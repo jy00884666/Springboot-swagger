@@ -1,0 +1,24 @@
+server:
+  port: 9000
+
+#swagger 配置  访问地址 http://localhost:9000/swagger-ui.html
+swagger:
+  #标题
+  title: API接口文档示例
+  #注解备注
+  desc: API 描述-基于springBoot编写的RESful-API
+  #版本
+  version: 1.0.0.SNAPSHOT
+  #api包路径
+  basePackage1: com.sw.controller.user
+  basePackage2: com.sw.controller.menu
+  #组名称
+  groupName1: 用户接口组
+  groupName2: 菜单接口组
+  # 创建作者信息
+  contactName: 程序员
+  contactUrl: http://www.baidu.com
+  contactEmail: 87419590@qq.com
+
+
+
