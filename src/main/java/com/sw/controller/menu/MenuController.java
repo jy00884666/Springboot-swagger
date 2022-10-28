@@ -1,10 +1,12 @@
 package com.sw.controller.menu;
 
 import com.sw.entity.Menu;
+import com.sw.zenum.MenuTypeEnum;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -62,6 +64,22 @@ public class MenuController {
     public String findByPage(@PathVariable Integer pageNum,
                              @PathVariable Integer pageSize) {
         return "OK";
+    }
+    
+    /**
+     * swagger 2.6.0 版本以上 对于高版本（>2.6.0）的 swagger 来说，不需要特别的配置就能支持下拉框:
+     * 下拉框的默认值是空，选择以后就能对 API 进行测试。
+     * 此时，如果下拉框不选值（默认为空），也可以执行请求，因此需要在后台判空处理。
+     */
+    @ApiOperation(value = "类型查询菜单信息")
+    @PostMapping("/queryMenuByType")
+    public List<Menu> queryMenuByType(MenuTypeEnum menuTypeEnum) {
+        Menu menu = new Menu();
+        menu.setId(Integer.valueOf(menuTypeEnum.getCode()));
+        menu.setName(menuTypeEnum.getName());
+        List<Menu> list = new ArrayList<>();
+        list.add(menu);
+        return list;
     }
 }
 
