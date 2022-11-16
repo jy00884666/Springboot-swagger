@@ -8,6 +8,7 @@
     <artifactId>Springboot-Swagger2</artifactId>
     <version>1.0-SNAPSHOT</version>
     
+    <!--加载许多版本号和<dependency>,只要父类中有依赖子类可以不写版本号<version>-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -16,6 +17,7 @@
     </parent>
     
     <dependencies>
+        <!--SpringBoot主要依赖,核心spring-boot-starter-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
